@@ -4,7 +4,8 @@
   "description": "A starter pack for scaffolding a website with WordPress and webpack.",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "wire": "jade -w devServer & webpack-dev-server"
   },
   "repository": {
     "type": "git",
@@ -35,12 +36,14 @@
     "file-loader": "^0.9.0",
     "extract-loader": "0.0.2",
     "postcss-loader": "^0.9.1",
-
     "autoprefixer": "^6.4.0",
-    "normalize.css": "^4.2.0",
-    "animate.css": "^3.5.2",
-    "bourbon": "https://github.com/thoughtbot/bourbon/archive/v5.0.0.beta.6.tar.gz",
-    "bourbon-neat": "^1.8.0",
-    "font-awesome": "^4.6.3"
+
+    "normalize": "https://github.com/necolas/normalize.css",
+    "animate": "https://github.com/daneden/animate.css",
+    "font-awesome": "https://github.com/FortAwesome/Font-Awesome",
+
+    "bourbon": "https://github.com/thoughtbot/bourbon#v5.0.0.beta.6",
+    "neat": "https://github.com/thoughtbot/neat#v1.8.0",
+    "bitters": "https://github.com/thoughtbot/bitters#v1.5.0"
   }
 }

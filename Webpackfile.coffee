@@ -36,9 +36,5 @@ module.exports=
   # Overriding options for resolve
   resolve:
     root:[path.resolve("./src")]
-    alias:
-      "font-awesome": "font-awesome/scss"
-      "animate":  "animate.css/source"
-
   # Adding plugins
   # plugins: []

@@ -25,6 +25,9 @@ webpack= ->
         @output[env]
 
   devServer: _.defaults @devServer ? {},
+    contentBase: "devServer/"
+    host: @host
+    port: @port
     quiet:  off
     noInfo: off
     stats:
@@ -42,7 +45,7 @@ webpack= ->
     loaders: [
       {
         test:     /\.(sa|sc|c)ss$/
-        loader:   "css!postcss!sass"
+        loader: "css#{if env isnt 'production' then '?sourceMap' else ''}!postcss-loader!sass"
       }
       {
         test:     /\.(gif|jpe?g|png)$/i
@@ -60,16 +63,15 @@ webpack= ->
     postLoaders: postLoaders
   sassLoader: _.defaults @sassLoader ? {},
     sourceMap: env isnt "production"
-    includePaths: _.flatten [
-      require('bourbon').includePaths
-      require('bourbon-neat').includePaths
-      "./node_modules/normalize.css"
-    ]
   postcss: ->
-    [
-      (require "autoprefixer") _.defaults @autoprefixer ? {},
-        browsers: ["last 2 versions"]
-    ]
+    opts= _.defaults @autoprefixer ? {},
+      browsers: [
+        "last 2 versions"
+        "IE >= 9" # Bourbon#v5.0.0.beta.6 and Neat#1.8.0 supports Internet Explorer 9+
+      ]
+    autoprefixer= require "autoprefixer"
+    # console.log autoprefixer(opts).info()
+    [autoprefixer(opts)]
   resolve: _.defaults @resolve ? {},
     extensions: ["", ".coffee", ".js"]
   plugins: do ->
