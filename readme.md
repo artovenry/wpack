@@ -22,8 +22,9 @@ wpackはWordPress, webpackを使ってサイト立ち上げをする際に利用
 ## 必ず必要なもの
 - git
 - npm
+
 ## WordPressテーマ制作する際に必要なもの
-- docker
+- docker-compose (>=1.8.1)
 
 
 
