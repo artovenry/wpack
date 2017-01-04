@@ -1,0 +1,17 @@
+path: wordpress
+core download:
+  version: "4.5.2"
+  locale: ja
+core config:
+  dbname: wordpress
+  dbuser: root
+  extra-php: |
+    define('SCRIPT_DEBUG', true);
+    define('ART_ENV', "development");
+    define('ART_DEV_ASSETS_URL', "http://192.168.1.2:30000/assets");
+core install:
+  title: Site Title
+  url: localhost
+  admin_user: wordpress
+  admin_password: wordpress
+  admin_email: mail@somehost.somedomain
