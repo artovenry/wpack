@@ -9,6 +9,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: wordpress
   wordpress:
+    container_name: wp
     build:
       context: ./wordpress
     depends_on:
@@ -17,6 +18,7 @@ services:
       - db
     volumes:
       - "./wordpress/etc:/etc/wordpress"
+      - "./theme:/var/www/html/wordpress/wp-content/themes/theme"
     restart: always
     ports:
       - "80:80"

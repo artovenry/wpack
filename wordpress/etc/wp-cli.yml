@@ -1,10 +1,9 @@
-path: wordpress
-core download:
-  version: "4.5.2"
-  locale: ja
+path: /var/www/html/wordpress
 core config:
+  dbhost: db
   dbname: wordpress
   dbuser: root
+  dbpass: root
   extra-php: |
     define('SCRIPT_DEBUG', true);
     define('ART_ENV', "development");
