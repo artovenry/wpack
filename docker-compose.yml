@@ -1,28 +1,37 @@
 version: "2"
 services:
-  db:
+  mysql:
+    container_name: mysql
     image: mysql:5.6
     volumes:
-      - "./.data/db:/var/lib/mysql"
+      - "./data/mysql:/var/lib/mysql"
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: wordpress
-  wordpress:
+    ports:
+      - "3307:3306"
+  wp:
     container_name: wp
-    build:
-      context: ./wordpress
     depends_on:
-      - db
+      - mysql
+    build:
+      context: .
+      args:
+        wp_version: 4.5.2
     links:
-      - db
-    volumes:
-      - "./wordpress/etc:/etc/wordpress"
-      - "./theme:/var/www/html/wordpress/wp-content/themes/theme"
-    restart: always
+      - mysql
     ports:
       - "80:80"
+    volumes:
+      - "./wordpress:/var/www/html"
+  wp-cli:
+    container_name: wp-cli
+    image: wpack_wp:latest
+    depends_on:
+      - wp
+    links:
+      - mysql
+    entrypoint: wp
+    command: --info
     environment:
-      WORDPRESS_DB_HOST: db:3306
-      WORDPRESS_DB_PASSWORD: root
-      WP_CLI_CONFIG_PATH: /etc/wordpress/wp-cli.yml
+      WP_CLI_CONFIG_PATH: /etc/wp-cli/4.5.2.yml

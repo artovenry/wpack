@@ -1,0 +1,5 @@
+#!/bin/sh
+# set -e
+wp core download
+wp core config
+wp core install

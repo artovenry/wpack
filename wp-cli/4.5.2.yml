@@ -1,7 +1,10 @@
-path: /var/www/html/wordpress
+path: /var/www/html
+core download:
+  locale: ja
+  version: 4.5.2
 core config:
-  dbhost: db
-  dbname: wordpress
+  dbname: wordpress_4_5_2
+  dbhost: mysql:3306
   dbuser: root
   dbpass: root
   extra-php: |
@@ -9,7 +12,7 @@ core config:
     define('ART_ENV', "development");
     define('ART_DEV_ASSETS_URL', "http://192.168.1.2:30000/assets");
 core install:
-  title: Site Title
+  title: WordPress 4.5.2
   url: localhost
   admin_user: wordpress
   admin_password: wordpress
