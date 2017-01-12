@@ -16,7 +16,7 @@ module.exports={}
   #     publicPath: "http://somedomain/assets"
 
   # Overriding options for devServer
-  # devServer={}
+  # devServer: {}
 
   # Overriding options for sass-loader
   # sassLoader: {}

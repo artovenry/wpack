@@ -10,10 +10,10 @@ core config:
   extra-php: |
     define('SCRIPT_DEBUG', true);
     define('ART_ENV', "development");
-    define('ART_DEV_ASSETS_URL', "http://192.168.1.2:30000/assets");
+    define('ART_DEV_ASSETS_URL', "http://localhost:30000/assets");
 core install:
   title: WordPress 4.5.2
-  url: localhost
+  url: localhost:8080
   admin_user: wordpress
   admin_password: wordpress
   admin_email: mail@somehost.somedomain

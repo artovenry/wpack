@@ -20,7 +20,7 @@ module.exports=
     development:
       path:       path.resolve __dirname, "bundled"
       filename:   "[name].js"
-      publicPath: "http://#{host}:#{port}"
+      publicPath: "http://0.0.0.0:#{port}"
     production:
       path:       path.resolve __dirname, "bundled"
       filename:   "[name]-[hash:6].js"
@@ -29,7 +29,7 @@ module.exports=
 
   devServer: _.defaults opts.devServer ? {},
     contentBase: "devServer/"
-    host: host
+    host: "0.0.0.0"
     port: port
     quiet:  off
     noInfo: off

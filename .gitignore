@@ -3,3 +3,4 @@ node_modules
 devServer/index.html
 WORK
 wordpress
+vendor

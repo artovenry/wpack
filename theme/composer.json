@@ -1,0 +1,12 @@
+{
+    "name": "root/theme",
+    "require": {
+        "mthaml/mthaml": "^1.8"
+    },
+    "authors": [
+        {
+            "name": "artovenry",
+            "email": "artovenry@gmail.com"
+        }
+    ]
+}
