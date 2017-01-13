@@ -1,6 +1,7 @@
+WORK
 bundled
 node_modules
-devServer/index.html
-WORK
 wordpress
 vendor
+vendor_ruby
+log

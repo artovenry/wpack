@@ -1,5 +1,12 @@
 version: "2"
 services:
+  capistrano:
+    image: ruby:2.4.0-alpine
+    volumes:
+      - .:/usr/src/app
+      - ./vendor_ruby:/usr/local/bundle
+    working_dir: /usr/src/app
+
   mysql:
     image: mysql:5.6
     volumes:
@@ -9,11 +16,13 @@ services:
       MYSQL_ROOT_PASSWORD: root
     ports:
       - "3306:3306"
+
   composer:
     image: composer
     volumes_from:
-      - wp
+      - wordpress
     working_dir: /usr/src/theme
+
   wp-cli:
     image: tatemz/wp-cli
     depends_on:
@@ -21,7 +30,7 @@ services:
     links:
       - mysql
     volumes_from:
-      - wp
+      - wordpress
     volumes:
       - ./wp-cli.yml:/usr/etc/wp-cli.yml
     environment:
@@ -31,7 +40,8 @@ services:
       - wp-cli.phar
     command:
       - --info
-  wp:
+
+  wordpress:
     image: wordpress
     depends_on:
       - mysql
@@ -44,8 +54,9 @@ services:
       - ./wordpress:/var/www/html
     entrypoint:
       - apache2-foreground
+
   node:
-    image: node:7.4.0-alpine
+    image: node:7.4.0
     user: node
     working_dir: /usr/src/app
     volumes:

@@ -1,7 +1,7 @@
 path= require "path"
 env= require "./Webpackfile/environment.coffee"
 
-module.exports={}
+# module.exports=
   # url-loaderで画像等をバンドルする時のファイルサイズリミット
   # limitSizeForbundle: 10000
 
