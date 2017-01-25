@@ -5,3 +5,4 @@ wordpress
 vendor
 vendor_ruby
 log
+wp-cli.yml
