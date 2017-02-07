@@ -1,16 +1,17 @@
-path: /var/www/html
+path: wordpress
 core download:
   locale: ja
-  version: 4.7.1
+  version: 4.7.2
 core config:
   dbname: wordpress
   dbhost: mysql:3306
   dbuser: root
   dbpass: root
   extra-php: |
+    define("WP_CONTENT_DIR", dirname(__DIR__) . "/wp-content");
     define('SCRIPT_DEBUG', true);
     define('ART_ENV', "development");
-    define('ART_DEV_ASSETS_URL', "http://localhost:30000/assets");
+    define('ART_DEV_ASSETS_URL', "http://192.168.1.102:30000/assets");
 core install:
   title: Title
   url: localhost:8080

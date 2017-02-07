@@ -2,7 +2,6 @@ WORK
 bundled
 node_modules
 wordpress
-vendor
 vendor_ruby
 log
 wp-cli.yml
