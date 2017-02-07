@@ -11,7 +11,6 @@ services:
       MYSQL_ROOT_PASSWORD: root
     ports:
       - "3306:3306"
-
   wp-cli:
     image: tatemz/wp-cli:latest
     depends_on:
@@ -29,7 +28,10 @@ services:
       - wp-cli.phar
     command:
       - --info
-
+  composer:
+    image: composer/composer:1.1-php5
+    volumes_from:
+      - wordpress
   wordpress:
     image: wordpress:4.7.1-php5.6-apache
     depends_on:
@@ -43,22 +45,3 @@ services:
       - ./wordpress:/var/www/html
     entrypoint:
       - apache2-foreground
-
-  node:
-    image: node:7.4.0
-    user: node
-    working_dir: /usr/src/app
-    volumes:
-      - .:/usr/src/app
-    command: [npm, run, start]
-    ports:
-      - 30000:30000
-
-
-
-  # capistrano:
-  #   image: ruby:2.4.0-alpine
-  #   volumes:
-  #     - .:/usr/src/app
-  #     - ./vendor_ruby:/usr/local/bundle
-  #   working_dir: /usr/src/app
