@@ -1,0 +1,10 @@
+%secion.no-posts
+  %header
+    %p No posts found.
+  %main
+    - if(is_home() and current_user_can("publish_posts"))
+      %p
+        %a(href="#{esc_url(admin_url("post-new.php"))}") write a post
+    - else
+      - get_search_form()
+
