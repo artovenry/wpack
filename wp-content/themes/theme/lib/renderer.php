@@ -1,4 +1,6 @@
 <?
+namespace Artovenry\Wpack;
+
 class Renderer{
   private $executor;
   private $path;
@@ -6,8 +8,8 @@ class Renderer{
   private $args;
 
   function __construct($name, $args=[]){
-    $haml= new MtHaml\Environment("php");
-    $this->executor= new MtHaml\Support\Php\Executor($haml,["cache"=> sys_get_temp_dir() . "/haml"]);
+    $haml= new \MtHaml\Environment("php");
+    $this->executor= new \MtHaml\Support\Php\Executor($haml,["cache"=> sys_get_temp_dir() . "/haml"]);
     $this->name= $name;
     $this->args= $args;
     $this->path= join("/", [get_template_directory(), "views", $name]);
@@ -22,10 +24,4 @@ class Renderer{
       exit("Template Not Found!");
     endif;
   }
-}
-
-if(function_exists("render"))return;
-function render($name, $args= []){
-  $renderer= new Renderer($name, $args);
-  return $renderer->render();
 }

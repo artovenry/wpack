@@ -3,9 +3,27 @@
   -render("head.html.haml")
   %body
     %header
-      %h1 Header
+      - the_custom_header_markup()
+      - the_custom_logo()
+      .site-title
+        - if(is_front_page())
+          %h1
+            %a(href="#{esc_url(home_url('/'))}" rel="home")= get_bloginfo("name")
+        - else
+          %div
+            %a(href="#{esc_url(home_url('/'))}" rel="home")= get_bloginfo("name")
+      - if($description=get_bloginfo("description", "display")   or is_customize_preview())
+        %p.site-description= $description
     %main
-      %p main
+      - if(have_posts())
+        - while(have_posts())
+          - the_post()
+          - render("article.html.haml")
+      - else
+        - render("no-posts.html.haml")
+    %aside.aside-1
+    %aside.aside-2
     %footer
+      -# %aside.aside-3
       %p footer
     -wp_footer()

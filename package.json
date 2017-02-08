@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
-    "wire": "jade -w devServer & webpack-dev-server"
+    "wire": "jade -w devServer & webpack-dev-server",
+    "bundle": "webpack -d"
   },
   "repository": {
     "type": "git",

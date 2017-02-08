@@ -4,11 +4,10 @@ if(
   or
   version_compare(PHP_VERSION,"5.6","<")
 ){
-  require __DIR__ . "/lib/requirements.php";
+  require __DIR__ . "/requirements.php";
   return;
 }
 require __DIR__ . "/vendor/autoload.php";
 
-add_action("after_setup_theme", function(){
-  require __DIR__ . "/theme.php";  
-})
+Artovenry\Wpack\AfterSetupTheme::init();
+Artovenry\Wpack\Customizer::init();
