@@ -2,6 +2,7 @@
 namespace Artovenry\Wpack;
 
 class Customizer{
+
   static function init($modules= "all"){
     $modules=["Color"];
     foreach($modules as $item){
@@ -21,15 +22,6 @@ class Customizer{
         "selector"=>".site-description",
         "render_callback"=>function(){bloginfo("description");}
       ]);
-      $c->add_section("theme_options",[
-        "title"       =>  "せってい",
-        "priority"    => 130
-      ]);
-  $c->add_control( new \WP_Customize_Color_Control( $c, 'colorscheme_hue', array(
-    'mode' => 'hue',
-    'section'  => 'theme_options',
-    'priority' => 6,
-  ) ) );
     });
   }
 }

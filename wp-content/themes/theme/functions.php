@@ -10,4 +10,5 @@ if(
 require __DIR__ . "/vendor/autoload.php";
 
 Artovenry\Wpack\AfterSetupTheme::init();
+Artovenry\Wpack\Assets::init();
 Artovenry\Wpack\Customizer::init();

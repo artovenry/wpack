@@ -12,3 +12,7 @@ module.exports=
   editor: [
     "./src/editor.sass"
   ]
+  # カスタマイザー
+  customizer:[
+    "./src/customizer.coffee"
+  ]

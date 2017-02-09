@@ -12,3 +12,18 @@
 @import ~Bitters/core/tables
 @import ~Bitters/core/typography
 
+body> header
+  +outer-container
+  +direction-context(right-to-left)
+    .wp-custom-header
+      +span-columns(10)
+    .custom-logo-link
+      +span-columns(2)
+      +omega
+  .site-title
+    +span-columns(10)
+    +shift(1)
+  .site-description
+    +span-columns(10)
+    +shift(1)
+

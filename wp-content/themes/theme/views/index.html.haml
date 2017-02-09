@@ -1,7 +1,7 @@
 !!! 5
 %html(lang="ja")
   -render("head.html.haml")
-  %body
+  %body(class="#{implode(" ", get_body_class())}")
     %header
       - the_custom_header_markup()
       - the_custom_logo()
